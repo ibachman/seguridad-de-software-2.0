@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+    {%  block content %}
+    {% if not lista_moteles %}
+    	<h1>No existen moteles registrados.</h1>
+    
+    {%else%}
+    <h1>Lista de Moteles:</h1>
+    <table class="table table-striped">
+  	<tr>
+    <td>Nombre</td>
+    <td>Ubicación</td>
+    <td>Descripción</td>
+    <td>Teléfono</td>
+    <td>Email</td>
+  	</tr>
+	  	{%for motel in lista_moteles%}
+  	<tr>
+  		<td><a href="{% url 'infomotel' motel.id %}">{{motel.nombre_del_motel}}</a></td>
+  		<td>{{motel.ubicacion}}</td>
+  		<td>{{motel.descripcion}}</td>
+  		<td>{{motel.telefono}}</td>
+  		<td>{{motel.email}}</td>
+  	</tr>
+  		{%endfor%}	
+	</table>	
+    {% endif %}
+    {% endblock %}

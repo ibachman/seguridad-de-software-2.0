@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+    {%  block content %} 
+    {%if not lista_reservas%} 
+    <h1>No se han efectuado reservas.</h1>
+    {%else%}
+   		<h1>Lista de Reservas:</h1>
+    <table class="table table-striped">
+  	<tr>
+    <td>Id</td>
+    <td>Motel</td>
+    <td>Pieza</td>
+    <td>Fecha de Inicio:</td>
+    <td>Fecha de Término</td>
+  	</tr>
+	  	{%for reserva in lista_reservas%}
+  	<tr>
+  		<td>{{reserva.id}}</td>
+  		<td>{{reserva.motel}}</td>
+  		<td>{{reserva.pieza}}</td>
+  		<td>{{reserva.fecha1}}, {{reserva.hora1}}</td>
+  		<td>{{reserva.fecha2}}, {{reserva.hora2}}</td>
+  	</tr>
+  		{%endfor%}	
+	</table>
+  	{%endif%}
+    {% endblock %}

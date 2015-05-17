@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+    {%  block content %}
+    <div class="container form-signin">
+        {% if exist %}
+        <h1> Bienvenido {{user}} </h1>
+        <a href="logout/" class="btn btn-lg btn-danger btn-block">Salir</a>
+        {% elif exist_motel %}
+        <h1> Bienvenido {{user_motel}} a la aplicación para moteles</h1>
+        <a href="logout/" class="btn btn-lg btn-danger btn-block">Salir</a>
+        {% else %}
+
+        <h1> TEST HOME! c: </h1>
+        <a href="{% url 'login' %}" class="btn btn-lg btn-primary btn-block">Entrar</a>
+        <a href="{% url 'registro' %}" class="btn btn-lg btn-info btn-block">Registrarse</a>
+
+        {% endif %}
+    </div>
+    {% endblock %}
